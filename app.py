@@ -33,7 +33,7 @@ def get_text_chunks(text):
 
 
 def get_vector_store(text_chunks):
-    embeddings = OpenAIEmbeddings(openai_api_key="sk-proj-bBqP8qMJstrIoqAch1bLT3BlbkFJBJ7a5JfI91lcVD8ht9Xf")
+    embeddings = OpenAIEmbeddings(openai_api_key="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")
     vector_store = FAISS.from_texts(text_chunks, embedding=embeddings)
     vector_store.save_local("faiss_index")
 
@@ -60,7 +60,7 @@ def get_conversational_chain():
 
 
 def user_input(user_question):
-    embeddings = OpenAIEmbeddings(openai_api_key="sk-proj-bBqP8qMJstrIoqAch1bLT3BlbkFJBJ7a5JfI91lcVD8ht9Xf")
+    embeddings = OpenAIEmbeddings(openai_api_key="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")
     
     new_db = FAISS.load_local("faiss_index", embeddings)
     docs = new_db.similarity_search(user_question)
